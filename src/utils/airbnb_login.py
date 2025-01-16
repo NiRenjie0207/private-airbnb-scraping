@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 def setup_chrome_for_airbnb():
     original_dir = Path(r"C:\Users\devadmin\AppData\Local\Google\Chrome\User Data")
-    automation_dir = Path(r"C:\automation\chrome_user_data2")
+    automation_dir = Path(r"C:\automation\chrome_user_data3")
 
     try:
         automation_dir.mkdir(parents=True, exist_ok=True)
@@ -40,8 +40,8 @@ def setup_chrome_for_airbnb():
             if src.exists():
                 shutil.copy2(src, dst)
 
-        profile_src = original_dir / 'Profile 4'
-        profile_dst = automation_dir / 'Profile 4'
+        profile_src = original_dir / 'Profile 3'
+        profile_dst = automation_dir / 'Profile 3'
 
         if profile_src.exists():
             shutil.copytree(profile_src, profile_dst)
@@ -128,7 +128,7 @@ def initialize_driver(user_data_dir) -> webdriver.Chrome:
     options.add_argument("--disable-popup-blocking")
     options.add_argument('--disable-blink-features=AutomationControlled')
     options.add_argument(f"--user-data-dir={user_data_dir}")
-    options.add_argument("--profile-directory=Profile 4")
+    options.add_argument("--profile-directory=Profile 3")
 
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option("useAutomationExtension", False)
@@ -138,7 +138,7 @@ def initialize_driver(user_data_dir) -> webdriver.Chrome:
     ]
     options.add_argument(f'user-agent={random.choice(user_agents)}')
 
-    proxy_host = os.environ.get('PROXY_HOST', "usa.rotating.proxyrack.net")
+    proxy_host = os.environ.get('PROXY_HOST', "premium.residential.proxyrack.net")
     proxy_port = os.environ.get('PROXY_PORT', "10060")
     proxy_user = os.environ.get('PROXY_USER', "novavacation")
     proxy_pass = os.environ.get('PROXY_PASS', "VIW1OTR-H19QIPG-DXG0GII-BCPZEKL-YZZAD0W-AL1FS6N-OMQGRBR")
