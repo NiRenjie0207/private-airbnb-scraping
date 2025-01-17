@@ -138,8 +138,8 @@ def initialize_driver(user_data_dir) -> webdriver.Chrome:
     ]
     options.add_argument(f'user-agent={random.choice(user_agents)}')
 
-    proxy_host = os.environ.get('PROXY_HOST', "premium.residential.proxyrack.net")
-    proxy_port = os.environ.get('PROXY_PORT', "10060")
+    proxy_host = os.environ.get('PROXY_HOST', "usa.rotating.proxyrack.net")
+    proxy_port = os.environ.get('PROXY_PORT', "10090")
     proxy_user = os.environ.get('PROXY_USER', "novavacation")
     proxy_pass = os.environ.get('PROXY_PASS', "VIW1OTR-H19QIPG-DXG0GII-BCPZEKL-YZZAD0W-AL1FS6N-OMQGRBR")
 
