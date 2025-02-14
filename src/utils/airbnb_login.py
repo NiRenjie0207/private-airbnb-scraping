@@ -114,6 +114,7 @@ def setup_proxy_extension(proxy_host: str, proxy_port: str, proxy_user: str, pro
 
 def initialize_driver(user_data_dir) -> webdriver.Chrome:
     options = webdriver.ChromeOptions()
+    options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
@@ -152,7 +153,7 @@ def initialize_driver(user_data_dir) -> webdriver.Chrome:
             options.add_argument(f'--proxy-server={proxy_host}:{proxy_port}')
 
     try:
-        service = Service(ChromeDriverManager().install())
+        service = Service(ChromeDriverManager("132.0.6834.160").install())
         driver = webdriver.Chrome(service=service, options=options)
 
         driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
