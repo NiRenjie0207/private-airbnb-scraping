@@ -153,7 +153,7 @@ def initialize_driver(user_data_dir) -> webdriver.Chrome:
             options.add_argument(f'--proxy-server={proxy_host}:{proxy_port}')
 
     try:
-        service = Service(ChromeDriverManager("132.0.6834.160").install())
+        service = Service(ChromeDriverManager("134.0.6998.35").install())
         driver = webdriver.Chrome(service=service, options=options)
 
         driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
